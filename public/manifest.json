@@ -1,0 +1,22 @@
+{
+  "name": "Luzia Delivery",
+  "short_name": "Luzia",
+  "description": "Seu mercado a um clique de distância",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a2b4a",
+  "theme_color": "#f5b841",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
