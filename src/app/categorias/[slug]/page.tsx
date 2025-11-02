@@ -11,7 +11,7 @@ interface CategoryPageProps {
   };
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
     return categories.map(c => ({ slug: c.id })).concat([{slug: 'ofertas'}, {slug: 'mais-vendidos'}]);
 }
 
