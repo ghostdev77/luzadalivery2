@@ -1,3 +1,4 @@
+
 import { products, categories } from "@/lib/mock-data";
 import { ProductList } from "@/components/products/ProductList";
 import { notFound } from "next/navigation";
@@ -5,15 +6,11 @@ import { Separator } from "@/components/ui/separator";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-type CategoryPageProps = {
-  params: { slug: string };
-};
-
 export function generateStaticParams() {
     return categories.map(c => ({ slug: c.id })).concat([{slug: 'ofertas'}, {slug: 'mais-vendidos'}]);
 }
 
-export default function CategoryPage({ params }: CategoryPageProps) {
+export default function CategoryPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   let title: string;

@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { products, categories } from '@/lib/mock-data';
@@ -10,15 +11,11 @@ import { AddToCart } from './_components/add-to-cart';
 import { RecommendedProducts } from '@/components/products/RecommendedProducts';
 import { ProductVariantSelector } from './_components/variant-selector';
 
-type ProductPageProps = {
-  params: { id: string };
-};
-
-export async function generateStaticParams() {
+export function generateStaticParams() {
     return products.map(p => ({ id: p.id }));
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default function ProductPage({ params }: { params: { id: string } }) {
   const product = products.find((p) => p.id === params.id);
 
   if (!product) {
