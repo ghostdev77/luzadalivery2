@@ -15,6 +15,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
   let title: string;
   let filteredProducts;
+  const category = categories.find((c) => c.id === slug);
 
   if (slug === 'ofertas') {
     title = '🔥 Ofertas';
@@ -23,7 +24,6 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
     title = '⭐ Mais Vendidos';
     filteredProducts = [...products].sort((a, b) => (b.vezesVendido ?? 0) - (a.vezesVendido ?? 0));
   } else {
-    const category = categories.find((c) => c.id === slug);
     if (!category) {
       notFound();
     }
@@ -36,7 +36,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       <div className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-primary">Home</Link>
         <ChevronRight className="h-4 w-4" />
-        <span className="font-semibold text-primary">{slug === 'ofertas' ? 'Ofertas' : slug === 'mais-vendidos' ? 'Mais Vendidos' : categories.find(c => c.id === slug)?.nome}</span>
+        <span className="font-semibold text-primary">{slug === 'ofertas' ? 'Ofertas' : slug === 'mais-vendidos' ? 'Mais Vendidos' : category?.nome}</span>
       </div>
       <h1 className="mb-2 font-headline text-4xl font-bold tracking-tight">{title}</h1>
       <p className="mb-8 text-muted-foreground">{filteredProducts.length} produtos encontrados</p>
