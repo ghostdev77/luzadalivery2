@@ -1,11 +1,15 @@
 import type {NextConfig} from 'next';
 
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+
 const nextConfig: NextConfig = {
-  /* config options here */
   output: 'export',
-  basePath: '/luzadalivery2',
-  assetPrefix: '/luzadalivery2/',
+  // assetPrefix e basePath são necessários para o GitHub Pages
+  assetPrefix: isGithubActions ? '/luzadalivery2/' : undefined,
+  basePath: isGithubActions ? '/luzadalivery2' : undefined,
   typescript: {
+    // Ignora erros de tipo durante o build para garantir a publicação.
+    // O ideal é corrigir esses erros depois.
     ignoreBuildErrors: true,
   },
   eslint: {
