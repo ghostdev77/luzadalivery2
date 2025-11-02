@@ -12,7 +12,7 @@ interface CategoryPageProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
+export function generateStaticParams(): { slug: string }[] {
     return categories.map(c => ({ slug: c.id })).concat([{slug: 'ofertas'}, {slug: 'mais-vendidos'}]);
 }
 
