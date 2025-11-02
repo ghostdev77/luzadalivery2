@@ -5,14 +5,11 @@ import { Separator } from "@/components/ui/separator";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-interface CategoryPageProps {
-  params: {
-    slug: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
+type CategoryPageProps = {
+  params: { slug: string };
+};
 
-export function generateStaticParams(): { slug: string }[] {
+export function generateStaticParams() {
     return categories.map(c => ({ slug: c.id })).concat([{slug: 'ofertas'}, {slug: 'mais-vendidos'}]);
 }
 

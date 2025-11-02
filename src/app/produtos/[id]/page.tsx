@@ -10,11 +10,9 @@ import { AddToCart } from './_components/add-to-cart';
 import { RecommendedProducts } from '@/components/products/RecommendedProducts';
 import { ProductVariantSelector } from './_components/variant-selector';
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
+type ProductPageProps = {
+  params: { id: string };
+};
 
 export async function generateStaticParams() {
     return products.map(p => ({ id: p.id }));
